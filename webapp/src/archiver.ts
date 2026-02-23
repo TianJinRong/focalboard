@@ -53,6 +53,13 @@ class Archiver {
         }
     }
 
+    private static async importCSVFromFile(file: File): Promise<void> {
+        const response = await mutator.importFullCSV(file)
+        if (response.status !== 200) {
+            Utils.log('ERROR importing archive: ' + response.text())
+        }
+    }
+
     static isValidBlock(block: Block): boolean {
         if (!block.id || !block.boardId) {
             return false
@@ -69,6 +76,27 @@ class Archiver {
             const file = input.files && input.files[0]
             if (file) {
                 await Archiver.importArchiveFromFile(file)
+            }
+
+            onComplete?.()
+        }
+
+        input.style.display = 'none'
+        document.body.appendChild(input)
+        input.click()
+
+        // TODO: Remove or reuse input
+    }
+
+    static importCSV(onComplete?: () => void): void {
+        const input = document.createElement('input')
+        input.type = 'file'
+        input.accept = '.csv'
+        input.onchange = async () => {
+            // TODO
+            const file = input.files && input.files[0]
+            if (file) {
+                await Archiver.importCSVFromFile(file)
             }
 
             onComplete?.()

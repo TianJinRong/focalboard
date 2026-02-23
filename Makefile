@@ -175,6 +175,9 @@ server-test-postgres: ## Run server tests using postgres
 webapp: ## Build webapp.
 	cd webapp; npm run pack
 
+webapp-watch: ## Build webapp.
+	cd webapp; npm run watchdev
+
 webapp-ci: ## Webapp CI: linting & testing.
 	cd webapp; npm run check
 	cd webapp; npm run test

@@ -276,6 +276,22 @@ class OctoClient {
         })
     }
 
+    async importCSV(file: File): Promise<Response> {
+        const formData = new FormData()
+        formData.append('file', file)
+
+        const headers = this.headers() as Record<string, string>
+
+        // TIPTIP: Leave out Content-Type here, it will be automatically set by the browser
+        delete headers['Content-Type']
+
+        return fetch(this.getBaseURL() + this.teamPath() + '/csv/import', {
+            method: 'POST',
+            headers,
+            body: formData,
+        })
+    }
+
     async getBlocksWithParent(parentId: string, type?: string): Promise<Block[]> {
         let path: string
         if (type) {

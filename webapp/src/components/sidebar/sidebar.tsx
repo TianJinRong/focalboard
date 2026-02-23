@@ -417,7 +417,7 @@ const Sidebar = (props: Props) => {
                 />
             </div>
 
-            <SidebarSettingsMenu activeTheme={getActiveThemeName()}/>
+            <SidebarSettingsMenu activeTheme={getActiveThemeName()} boards={boards} />
         </div>
     )
 }

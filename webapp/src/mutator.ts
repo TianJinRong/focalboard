@@ -1193,6 +1193,11 @@ class Mutator {
         return octoClient.importFullArchive(file)
     }
 
+    
+    async importFullCSV(file: File): Promise<Response> {
+        return octoClient.importCSV(file)
+    }
+
     get canUndo(): boolean {
         return undoManager.canUndo
     }

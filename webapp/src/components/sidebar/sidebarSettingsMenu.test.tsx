@@ -85,7 +85,7 @@ describe('components/sidebar/SidebarSettingsMenu', () => {
     test('languages menu open should match snapshot', () => {
         const component = wrapIntl(
             <ReduxProvider store={store}>
-                <SidebarSettingsMenu activeTheme={defaultThemeName}/>
+                <SidebarSettingsMenu activeTheme={defaultThemeName} boards={[]}/>
             </ReduxProvider>,
         )
 
@@ -103,7 +103,7 @@ describe('components/sidebar/SidebarSettingsMenu', () => {
         window.open = jest.fn()
         const component = wrapIntl(
             <ReduxProvider store={store}>
-                <SidebarSettingsMenu activeTheme={defaultThemeName}/>
+                <SidebarSettingsMenu activeTheme={defaultThemeName} boards={[]}/>
             </ReduxProvider>,
         )
 
