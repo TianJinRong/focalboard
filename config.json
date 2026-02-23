@@ -1,6 +1,6 @@
 {
-	"serverRoot": "http://localhost:8000",
-	"port": 8000,
+	"serverRoot": "http://localhost:8008",
+	"port": 8008,
 	"dbtype": "sqlite3",
 	"dbconfig": "./focalboard.db?_busy_timeout=5000",
 	"dbpingattempts": 5,
