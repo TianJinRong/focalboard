@@ -1,0 +1,17 @@
+[Unit]
+Description=Focalboard Service
+# 如果你的服务需要网络，可以取消下一行的注释
+# After=network.target
+
+[Service]
+# 类型：oneshot 适合执行一次就退出的脚本，simple 适合持续运行的服务
+Type=simple
+# 指定要执行的脚本的完整路径
+ExecStart=/bin/bash /home/cohen/Desktop/focalboard/focalboard/service/start.sh
+# 如果脚本需要崩溃后自动重启，可以取消下一行的注释
+# Restart=on-failure
+# 建议指定运行脚本的用户，避免权限问题 (例如你的用户名)
+User=cohen
+
+[Install]
+WantedBy=multi-user.target
